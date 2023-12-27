@@ -1,3 +1,7 @@
+const greet = (name) => {
+  console.log(`Hello, ${name}!`);
+};
+
 function loggingDecorator(func) {
   return function (...args) {
     console.log(`${func.name}, args: ${args.join(", ")}`);
@@ -5,11 +9,7 @@ function loggingDecorator(func) {
   };
 }
 
-const someFn = (param1, param2, ...params) => {
-  // Що-небудь робимо тут
-};
+const loggedGreet = loggingDecorator(greet);
 
-const loggedFn = loggingDecorator(someFn);
-
-loggedFn(1, 2, 3); // Має вивести у консоль someFn, args: 1, 2, 3
-loggedFn("test"); // Має вивести у консоль someFn, args: test
+loggedGreet("Alice"); // Має вивести у консоль greet, args: Alice
+loggedGreet("Bob"); // Має вивести у консоль greet, args: Bob
